@@ -1,0 +1,4 @@
+# ZeldaProjects
+#
+
+from .config import *
