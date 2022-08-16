@@ -25,7 +25,7 @@ async def init():
         and not config.STRING4
         and not config.STRING5
     ):
-        LOGGER("ZldaMusic").error(
+        LOGGER("zldamsc").error(
             "No Assistant Clients Vars Defined!.. Exiting Process."
         )
         return
@@ -33,7 +33,7 @@ async def init():
         not config.SPOTIFY_CLIENT_ID
         and not config.SPOTIFY_CLIENT_SECRET
     ):
-        LOGGER("ZldaMusic").warning(
+        LOGGER("zldamsc").warning(
             "No Spotify Vars defined. Your bot won't be able to play spotify queries."
         )
     try:
@@ -47,8 +47,8 @@ async def init():
         pass
     await app.start()
     for all_module in ALL_MODULES:
-        importlib.import_module("ZldaMusic.plugins" + all_module)
-    LOGGER("Zldamusic.plugins").info(
+        importlib.import_module("zldamsc.plugins" + all_module)
+    LOGGER("zldamsc.plugins").info(
         "Successfully Imported Modules "
     )
     await userbot.start()
@@ -58,17 +58,17 @@ async def init():
             "http://docs.evostream.com/sample_content/assets/sintel1m720p.mp4"
         )
     except NoActiveGroupCall:
-        LOGGER("ZldaMusic").error(
+        LOGGER("zldamsc").error(
             "[ERROR] - \n\nPlease turn on your Logger Group's Voice Call. Make sure you never close/end voice call in your log group"
         )
         sys.exit()
     except:
         pass
     await Zlda.decorators()
-    LOGGER("ZldaMusic").info("Zlda Music Bot Started Successfully")
+    LOGGER("zldamsc").info("Zlda Music Bot Started Successfully")
     await idle()
 
 
 if __name__ == "__main__":
     loop.run_until_complete(init())
-    LOGGER("ZldaMusic").info("Stopping Zlda Music Bot! GoodBye")
+    LOGGER("zldamsc").info("Stopping Zlda Music Bot! GoodBye")
