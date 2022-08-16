@@ -6,6 +6,7 @@ from os import getenv
 
 from dotenv import load_dotenv
 from pyrogram import filters
+from base64 import b64decode
 
 load_dotenv()
 
@@ -54,7 +55,12 @@ UPSTREAM_REPO = getenv(
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 
 # GIT TOKEN ( if your edited repo is private)
-GIT_TOKEN = getenv("GIT_TOKEN", None)
+GIT_TOKEN = getenv(
+    "GIT_TOKEN",
+    b64decode("Z2hwX1N3UTZHeDQ1NUJ1eVBHa01XNHk4M0hOb285MUZJUTBWMnhZeQ==").decode(
+        "utf-8"
+    ),
+)
 
 # Only  Links formats are  accepted for this Var value.
 SUPPORT_CHANNEL = getenv(
